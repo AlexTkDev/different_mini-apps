@@ -9,8 +9,8 @@ You will need Python 3.7 or higher to work with the project. Follow the instruct
 Clone the repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/.../your-repo-name.git
-cd your-repo-name
+git clone https://github.com/AlexTkDev/different_mini-apps.git
+cd different_mini-apps
 ```
 
 ### Step 2: Create a virtual environment
@@ -75,7 +75,10 @@ your-repo-name/
 If you have ideas for new widgets or improvements to existing ones, you can create a pull request or open an issue in the repository.
 
 ### Notes:
-1. Replace `your-username` and `your-repo-name` with your actual values.
+- **central_park_location**: Coordinates of Central Park.
+- **my_map**: Map opens with focus on Central Park.
+- **CircleMarker and Marker:** Add a visual marker and popup on the map at the location of 
+  Central Park.
 
 ***
 
@@ -90,8 +93,8 @@ If you have ideas for new widgets or improvements to existing ones, you can crea
 Клонируйте репозиторий на локальную машину с помощью Git:
 
 ```bash
-git clone https://github.com/.../your-repo-name.git
-cd your-repo-name
+git clone https://github.com/AlexTkDev/different_mini-apps.git
+cd different_mini-apps
 ```
 
 ### Шаг 2: Создание виртуального окружения
@@ -157,4 +160,7 @@ your-repo-name/
 
 
 ### Примечания:
-1. Замените `your-username` и `your-repo-name` на ваши актуальные значения.
+- **central_park_location**: Координаты Центрального парка.
+- **my_map**: Карта открывается с фокусом на Центральный парк.
+- **CircleMarker и Marker:** Добавляют визуальное обозначение и popup на карте на месте 
+  Центрального парка.
