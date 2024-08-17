@@ -1,16 +1,29 @@
 import folium
 
-map_center = [45.5236, -122.6750]
-my_map = folium.Map(location=map_center, zoom_start=15, zoom_control=True)
+# Координаты Центрального парка
+central_park_location = [40.785091, -73.968285]
 
-folium.Marker(
-    location=map_center,
-    icon=folium.Icon(color='blue', icon='map'),
-    popup=folium.Popup("Let's try quotes", parse_html=True, max_width=100),
+# Создаем карту с начальной точкой в Центральном парке
+my_map = folium.Map(location=central_park_location, zoom_start=15, zoom_control=True)
+
+# Добавляем красный круглый маркер для Центрального парка
+central_park_marker = folium.CircleMarker(
+    location=central_park_location,
+    radius=5,
+    color="red",
+    fill=True,
+    fill_color="red"
+).add_to(my_map)
+
+# Добавляем указатель на Центральный парк в виде маркера с popup-окном
+central_park_popup_marker = folium.Marker(
+    location=central_park_location,
+    popup=folium.Popup('Central Park', max_width=200),
+    icon=folium.Icon(color='red')
 ).add_to(my_map)
 
 
-# Отображаем карту
+# Сохраняем карту в HTML файл
 def main():
     my_map.save('map.html')
 
