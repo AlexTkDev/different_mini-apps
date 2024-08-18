@@ -51,9 +51,9 @@ preventing the value from being changed.
 ```python
 if __name__ == "__main__":
     immutable_obj = Immutable(42)
-    print(immutable_obj.value + 5)  # Вывод: 47
-    print(immutable_obj.value)  # Вывод: 42
-    immutable_obj.value += 5  # Вызовет AttributeError
+    print(immutable_obj.value + 5)  # Output: 47
+    print(immutable_obj.value)  # Output: 42
+    immutable_obj.value += 5  # Calls AttributeError
 ```
 
 ### Explanation:
