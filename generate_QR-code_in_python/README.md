@@ -1,88 +1,91 @@
-### Project: QR Code Generation and Reading
+## Project: QR Code Generation
 
 #### Project Description
-This project is a simple application for creating and reading QR codes using 
-the `qrcode` and `opencv-python` (OpenCV) libraries. The program generates a QR code based on
-provided data, saves it as an image, and then reads and decodes the data from that image.
+This project is a simple application for generating QR codes using the `qrcode` and `Pillow (PIL)`
+libraries. The application features a graphical user interface that allows users to enter or paste 
+text to generate a QR code based on that text. The generated QR code is saved as an image and 
+displayed within the application window.
 
-#### Key Features:
-1. **QR Code Generation**:
-   - Users can input data to create a QR code.
-   - The size and parameters of the QR code can be adjusted through `version`, `error_correction`, `box_size`, and `border` settings.
-   - The generated QR code image is saved in PNG format.
-
-2. **QR Code Reading**:
-   - The program loads the saved image and decodes the data from the QR code.
-   - It displays the decoded data and the coordinates of the QR code's bounding box.
-   - If the QR code is successfully recognized, it is displayed on the screen.
+#### Key Features
+- **QR Code Generation:**
+  - Users can input text or paste copied text from the clipboard to create a QR code through the graphical interface.
+  - The size and parameters of the QR code can be adjusted using version, error_correction, box_size, and border settings.
+  - The generated QR code image is saved in PNG format and displayed in the application window.
+  
+- **Clipboard Integration:**
+  - Users can paste text directly from the clipboard into the text entry field using the "Paste from Clipboard" button.
+  
+- **Notification System:**
+  - Users are notified with a success message once the QR code is successfully generated and saved.
 
 #### Requirements
 The project requires the following dependencies:
+- `Python 3.x`
+- `qrcode`
+- `Pillow (PIL)`
 
-`Python 3.x`, `qrcode`, `opencv-python`
-
-You can install all dependencies by running the command:
-
-```bash
-pip install -r requirements.txt
+You can install all dependencies by running:
+```sh
+  pip install -r requirements.txt
 ```
 
 #### How to Use
-1. **QR Code Generation**:
-   - Edit the line `qr.add_data('Some data')` to specify the data you want to encode in the QR code.
-   - Run the program to generate and save the QR code.
+1. **QR Code Generation:**
+   - Run the application.
+   - Enter the text you want to encode in the QR code into the text entry field, or click the "Paste from Clipboard" button to insert copied text.
+   - Click the "Generate QR Code" button.
+   - The QR code will be generated, saved as `QR-code.png`, and displayed in the application window.
 
-2. **QR Code Reading**:
-   - Run the program to recognize the QR code from the generated image.
-   - If the QR code is successfully recognized, it will be displayed on the screen, and the data will be printed to the console.
+2. **Clipboard Integration:**
+   - Click the "Paste from Clipboard" button to paste any copied text into the text entry field from the system clipboard.
 
 #### License
 This project is licensed under the MIT License. You are free to use, copy, modify, and distribute 
 the code under the terms of this license.
 
-***
+---
 
-### Проект: Генерация и чтение QR-кодов
+## Проект: Генератор QR-кодов
 
 #### Описание проекта
-Этот проект представляет собой простое приложение для создания и чтения QR-кодов с использованием 
-библиотек `qrcode` и `opencv-python` (OpenCV). Программа генерирует QR-код на основе 
-предоставленных данных, сохраняет его как изображение, а затем считывает и декодирует данные из 
-этого изображения.
+Этот проект представляет собой простое приложение для генерации QR-кодов с использованием 
+библиотек `qrcode` и `Pillow (PIL)`. Приложение имеет графический интерфейс, который позволяет 
+пользователям вводить или вставлять текст для создания QR-кода на основе этого текста. 
+Сгенерированный QR-код сохраняется в виде изображения и отображается в окне приложения.
 
-#### Основные возможности:
-1. **Генерация QR-кода**:
-   - Пользователь может задавать данные для создания QR-кода.
-   - Размер и параметры QR-кода настраиваются через параметры `version`, `error_correction`, `box_size` и `border`.
-   - Генерируемое изображение QR-кода сохраняется в формате PNG.
-
-2. **Чтение QR-кода**:
-   - Программа загружает сохраненное изображение и декодирует данные из QR-кода.
-   - Выводит данные и координаты рамки QR-кода.
-   - Отображает QR-код, если он был успешно распознан.
+#### Основные функции
+- **Генерация QR-кодов:**
+  - Пользователи могут ввести текст или вставить скопированный текст из буфера обмена в графический интерфейс для создания QR-кода.
+  - Размер и параметры QR-кода могут быть настроены с помощью версии, уровня коррекции ошибок, размера ячейки и границы.
+  - Сгенерированный QR-код сохраняется в формате PNG и отображается в окне приложения.
+  
+- **Интеграция с буфером обмена:**
+  - Пользователи могут вставлять текст прямо из буфера обмена в поле ввода текста с помощью кнопки "Вставить из буфера обмена".
+  
+- **Система уведомлений:**
+  - После успешной генерации и сохранения QR-кода пользователи получают уведомление с подтверждением.
 
 #### Требования
 Для работы проекта необходимы следующие зависимости:
+- `Python 3.x`
+- `qrcode`
+- `Pillow (PIL)`
 
-`Python 3.x`, `qrcode`,`opencv-python`
-
-Вы можете установить все зависимости, выполнив команду:
-
-```bash
-pip install -r requirements.txt
+Все зависимости можно установить с помощью команды:
+```sh
+  pip install -r requirements.txt
 ```
 
-#### Как использовать
-1. **Генерация QR-кода**:
-   - Отредактируйте строку `qr.add_data('Some data')`, указав данные, которые вы хотите закодировать в QR-код.
-   - Запустите программу для генерации и сохранения QR-кода.
+#### Как пользоваться
+1. **Генерация QR-кода:**
+   - Запустите приложение.
+   - Введите текст, который вы хотите закодировать в QR-код, в поле ввода текста, или нажмите кнопку "Вставить из буфера обмена", чтобы вставить скопированный текст.
+   - Нажмите кнопку "Генерировать QR-код".
+   - QR-код будет сгенерирован, сохранен как `QR-code.png` и отображен в окне приложения.
 
-2. **Чтение QR-кода**:
-   - Запустите программу, чтобы распознать QR-код из сгенерированного изображения.
-   - Если QR-код успешно распознан, он будет отображен на экране, а данные будут выведены в консоль.
+2. **Интеграция с буфером обмена:**
+   - Нажмите кнопку "Вставить из буфера обмена", чтобы вставить любой скопированный текст в поле ввода из системного буфера обмена.
 
 #### Лицензия
-Этот проект распространяется под лицензией MIT. Вы можете использовать, копировать, 
-изменять и распространять код в соответствии с условиями этой лицензии.
-
----
+Этот проект лицензируется под лицензией MIT. Вы можете использовать, копировать, изменять и 
+распространять код на условиях этой лицензии.
