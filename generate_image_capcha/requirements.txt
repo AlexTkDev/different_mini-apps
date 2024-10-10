@@ -1,3 +1,2 @@
-capcha==3.2
 captcha==0.6.0
 pillow==10.4.0
