@@ -22,11 +22,8 @@ def perform_speedtest():
     update_progress(0, "Starting download speed test...")
     download_thread = threading.Thread(target=test_download_speed, args=(test, result_container))
     download_thread.start()
+    download_thread.join()  # Wait for the download thread to finish
 
-    # Wait for the download thread to finish
-    download_thread.join()
-
-    # Check for errors in download speed
     if 'error' in result_container:
         messagebox.showerror("Error", result_container['error'])
         return
@@ -37,11 +34,8 @@ def perform_speedtest():
     update_progress(0, "Starting upload speed test...")
     upload_thread = threading.Thread(target=test_upload_speed, args=(test, result_container))
     upload_thread.start()
+    upload_thread.join()  # Wait for the upload thread to finish
 
-    # Wait for the upload thread to finish
-    upload_thread.join()
-
-    # Check for errors in upload speed
     if 'error' in result_container:
         messagebox.showerror("Error", result_container['error'])
         return
@@ -49,7 +43,6 @@ def perform_speedtest():
     upload_speed = result_container['upload']
     ping = test.results.ping
 
-    # Display results
     display_results(download_speed, upload_speed, ping)
 
 
@@ -98,13 +91,18 @@ def display_results(down_speed, up_speed, ping):
     )
     result_label.config(text=result_text)
     update_progress(100, "Test complete!")  # Set progress bar to 100%
-    exit_button.pack(pady=10)  # Show exit button
+
+    # Show "Repeat Speed Test" button and hide the exit button
+    repeat_button.pack(pady=10)
 
 
 def start_speedtest():
     """Starts the speed test when the button is pressed."""
     result_label.config(text="Running speed test...")
-    exit_button.pack_forget()  # Hide exit button initially
+    start_button.pack_forget()  # Hide the start button
+    repeat_button.pack_forget()  # Hide the repeat button if it was visible
+
+    # Run the speed test in a separate thread
     threading.Thread(target=perform_speedtest).start()
 
 
@@ -118,13 +116,13 @@ root = tk.Tk()
 root.title("Internet Speed Test")
 root.geometry("400x400")
 
-# Create and place a button to start the speed test
+# Create the start button
 start_button = tk.Button(root, text="Start Speed Test", command=start_speedtest)
 start_button.pack(pady=20)
 
-# Create and place a button to exit the program
-exit_button = tk.Button(root, text="Exit", command=exit_program)
-exit_button.pack_forget()  # Hide exit button until the test is complete
+# Create a repeat button that will be shown after the first test
+repeat_button = tk.Button(root, text="Repeat Speed Test", command=start_speedtest)
+repeat_button.pack_forget()  # Initially hide the repeat button
 
 # Create a label to display results
 result_label = tk.Label(root, text="")
@@ -137,6 +135,10 @@ progress_label.pack(pady=10)
 # Create a progress bar
 progress_bar = ttk.Progressbar(root, length=300, mode='determinate')
 progress_bar.pack(pady=20)
+
+# Create a button to exit the program
+exit_button = tk.Button(root, text="Exit", command=exit_program)
+exit_button.pack(pady=10)
 
 # Run the application
 root.mainloop()
